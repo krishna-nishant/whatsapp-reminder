@@ -83,3 +83,47 @@ To deploy the application to a production environment:
 ## License
 
 ISC 
+
+## Multi-Platform Support
+
+This application now supports reminders on both WhatsApp and Telegram!
+
+### WhatsApp Setup
+- Follow the instructions above to set up Twilio WhatsApp Sandbox
+- Get your Twilio credentials and add them to .env
+- Users need to first send "join nearest effort" (or your sandbox code) to your WhatsApp number
+
+### Telegram Setup
+1. Create a new Telegram bot using BotFather:
+   - Open Telegram and search for `@BotFather`
+   - Send the `/newbot` command
+   - Follow the instructions to set a name and username
+   - BotFather will give you a token - copy this to your .env file as `TELEGRAM_BOT_TOKEN`
+
+2. Start the Telegram bot:
+   ```
+   npm run telegram
+   ```
+   
+   Or for development with auto-restart:
+   ```
+   npm run dev:telegram
+   ```
+
+3. Search for your bot on Telegram by the username you gave it and start using it!
+
+### Using Both Simultaneously
+
+You can run both the WhatsApp and Telegram bots simultaneously:
+
+1. Start the WhatsApp bot:
+   ```
+   npm run dev
+   ```
+
+2. In a separate terminal, start the Telegram bot:
+   ```
+   npm run dev:telegram
+   ```
+
+The bots share the same database, so reminders are synchronized across both platforms. 
