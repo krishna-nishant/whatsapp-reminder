@@ -1,0 +1,5 @@
+node_modules
+.env
+test-nlp.js
+test-request.js
+
